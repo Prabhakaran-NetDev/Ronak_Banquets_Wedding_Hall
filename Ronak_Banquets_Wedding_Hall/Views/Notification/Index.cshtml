@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Ronak_Banquets_Wedding_Hall.Models.tbl_notifications>
+
+@{
+    ViewBag.Title = "Index";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_read)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_read)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.notification_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.notification_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.notification_id })
+            </td>
+        </tr>
+    }
+
+</table>

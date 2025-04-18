@@ -1,0 +1,169 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.adminViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>User_Dashboard</h2>
+
+<h3>
+    @Html.ActionLink("Book an Event", "../Admin/Create")
+</h3>
+
+<h2>Your Events</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().event_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().event_venue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().event_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_bookings_users.First().booking_date)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Events_bookings_users)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.booking_date)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<nav id="nav-menu-container">
+    <ul class="nav-menu">
+        <li class="buy-tickets"><a href="">Payments</a></li>
+    </ul>
+</nav>
+<br />
+
+<h2>Upcoming Others Events</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_venue)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Events)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_venue)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<h2>
+    Resources
+</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Resources.First().resource_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resources.First().resource_availability)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Resources)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_availability)
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<h2>Event Resources Allotted You</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().resource_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().resource_availability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().event_date)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Events_Resources_Select)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    ViewBag.menuactContact = "menu-active";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>Ronak Banquet Wedding Hall</h3>
+
+    <address>
+        City center <br>
+        Tamil Nadu<br>
+        India <br>
+        <strong>Phone:</strong> +91 8888888888<br>
+        <strong>Email:</strong> info@example.com<br>
+    </address>
+
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
+</main>

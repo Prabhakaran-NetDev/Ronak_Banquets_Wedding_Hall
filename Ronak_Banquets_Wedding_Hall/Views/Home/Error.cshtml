@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = 404;
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+<main aria-labelledby="title">
+    <div style="font-size:100px;">404 - Page Not Found</div>
+</main>

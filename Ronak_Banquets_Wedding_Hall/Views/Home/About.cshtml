@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "About";
+    ViewBag.menuactAbout = "menu-active";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+<main aria-labelledby="title">
+    <h2 id="title">@ViewBag.Title.</h2>
+    <h3>Ronak Banquet Wedding Hall</h3>
+
+    <p>
+        Welcome to Ronak Banquet Wedding Hall, where elegance meets perfection.
+        Experience unforgettable weddings and events in our luxurious setting.
+        Our expert team crafts customized celebrations to exceed your expectations.
+        With exquisite cuisine and impeccable service, we make every moment memorable.
+        Where love stories unfold, and memories are made - Ronak Banquet Wedding Hall.
+        <br>
+        <br>
+        Nestled in the heart of Our City, Ronak is a premier banquet wedding hall dedicated to providing unparalleled service,
+        exquisite cuisine, and unforgettable ambiance for your special day. With over [Number] years of experience,
+        our expert team has crafted countless weddings, social gatherings, and corporate events,
+        earning us a reputation as the go-to destination for discerning couples and event planners.
+    </p>
+</main>

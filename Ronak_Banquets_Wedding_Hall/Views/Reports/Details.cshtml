@@ -1,0 +1,54 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.tbl_reports
+
+@{
+    ViewBag.Title = "Details";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_reports</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.event_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.generated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.generated_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.attentess_count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.attentess_count)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.report_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

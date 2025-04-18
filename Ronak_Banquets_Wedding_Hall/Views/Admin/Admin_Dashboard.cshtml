@@ -1,0 +1,227 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.adminViewModel
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create Event", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_venue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().created_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().payment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Events)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_venue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created_by)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.event_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.event_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.event_id })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+<h2>Bookings</h2>
+<div style="overflow-x:scroll">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().event_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().event_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().event_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().event_venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().created_by)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().event_status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().booking_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Events_bookings.First().booking_date)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Events_bookings)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_venue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.created_by)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.payment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.booking_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.booking_date)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+<h2>
+    Resources
+</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Resources.First().resource_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resources.First().resource_availability)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Resources)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_availability)
+            </td>
+            <td>
+                @Html.ActionLink("Create New", "../Resource/Create") |
+                @Html.ActionLink("Edit", "../Resource/Edit", new { id = item.resource_id }) |
+                @Html.ActionLink("Delete", "../Resource/Delete", new { id = item.resource_id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<br />
+<h2>Event Resources Allotted</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().resource_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().resource_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().resource_availability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().event_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events_Resources_Select.First().event_date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Events_Resources_Select)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resource_availability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.ActionLink("Create New", "../Resource/ERCreate") |
+                @Html.ActionLink("Edit", "../Resource/EREdit", new { id = item.resource_id }) |
+                @Html.ActionLink("Delete", "../Resource/ERDelete", new { id = item.resource_id })
+            </td>
+        </tr>
+    }
+
+</table>

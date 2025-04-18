@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Ronak_Banquets_Wedding_Hall.Models.tbl_notifications>
+
+@{
+    ViewBag.Title = "Details";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Notifications</h4>
+    <hr />
+    <table class="table">
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @i =>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.message)
+                </td>
+            </tr>
+            {
+                i = i + 1;
+            }
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to Dashboard", "../Home/User_Dashboard")
+</p>

@@ -1,0 +1,44 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.tbl_event_resources
+
+@{
+    ViewBag.Title = "ERDelete";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>ERDelete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbl_event_resources</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.event_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.event_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.resource_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resource_id)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm("ERDeleteM", "Resource"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Dashboard", "../Admin/Admin_Dashboard")
+        </div>
+    }
+</div>

@@ -1,0 +1,46 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.tbl_notifications
+
+@{
+    ViewBag.Title = "Details";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_notifications</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.message)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_read)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_read)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.notification_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

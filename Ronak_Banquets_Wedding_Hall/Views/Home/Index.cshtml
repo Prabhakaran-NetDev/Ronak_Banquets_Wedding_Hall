@@ -1,0 +1,83 @@
+﻿@model Ronak_Banquets_Wedding_Hall.Models.adminViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+    ViewBag.menuactHome = "menu-active";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<section id="intro">
+    <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0">Welcome To<br><span>Ronak</span> Banquat Wedding Hall</h1>
+        <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+        <a href="https://www.youtube.com/" class="venobox play-btn mb-4" data-vbtype="video"
+           data-autoplay="true"></a>
+        <a href="#" class="about-btn scrollto">Book Now</a>
+    </div>
+</section>
+
+<main id="main">
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>About</h2>
+                    <p>
+                        Welcome to Ronak Banquet Wedding Hall, where elegance meets perfection.
+                        Experience unforgettable weddings and events in our luxurious setting.
+                        Our expert team crafts customized celebrations to exceed your expectations.
+                        With exquisite cuisine and impeccable service, we make every moment memorable.
+                        Where love stories unfold, and memories are made - Ronak Banquet Wedding Hall.
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h3>Where</h3>
+                    <p>
+                        City center <br>
+                        Tamil Nadu<br>
+                        India <br>
+                        <strong>Phone:</strong> +91 8888888888<br>
+                        <strong>Email:</strong> info@example.com<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<br />
+
+<h2>Upcoming Events</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Events.First().event_venue)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Events)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_venue)
+            </td>
+        </tr>
+    }
+
+</table>

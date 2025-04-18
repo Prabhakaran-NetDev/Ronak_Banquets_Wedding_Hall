@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Ronak_Banquets_Wedding_Hall.Models.tbl_reports>
+
+@{
+    ViewBag.Title = "Index";
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.event_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.generated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.attentess_count)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.generated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.attentess_count)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.report_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.report_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.report_id })
+            </td>
+        </tr>
+    }
+
+</table>

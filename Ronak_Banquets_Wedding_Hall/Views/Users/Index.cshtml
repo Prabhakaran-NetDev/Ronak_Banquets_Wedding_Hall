@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Ronak_Banquets_Wedding_Hall.Models.tbl_users>
+
+@{
+    ViewBag.Title = "Users_List"; 
+    if (TempData["Message"] != null)
+    {
+        <script>alert('@TempData["Message"]');</script>
+    }
+}
+
+<h2>Users List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_role)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_role)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.user_id }) |
+                @Html.ActionLink("Profile", "Details", new { id = item.user_id })
+            </td>
+        </tr>
+    }
+
+</table>
